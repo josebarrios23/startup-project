@@ -4,6 +4,7 @@ body, html {
   text-align: center; /* Centers text and inline elements */
   padding-bottom: 15%; /* footer acts better with this */
   width: fit-content; /* makes everything soo neat */
+  
 }
 
 main {
@@ -41,19 +42,19 @@ footer {
 }
 
 /* create jobPosts.css once corresponding component is created and add the following CSS */
-section.job-posts {
+div.job-posts {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin-top: 1em;
   width: fit-content;
 }
 
-ul.job {
+/* div.job {
   display: grid;
   grid-template-columns: 1fr 2fr;
   height: min-content;
   border: 1px solid black;
-}
+} */
 
 .project-card {
   border: 1px solid black;
@@ -61,3 +62,11 @@ ul.job {
 }
 
 /* when adding li for ul.job gotta align center */
+
+/* make separate css for landing */
+/* make ternary css for background image for main */
+section.landing {
+  background: url(https://www.bbg.org/img/uploads/hero/_desktop_hero_regular/bug-2015-harvest.jpg);
+  background-size: cover;
+
+}

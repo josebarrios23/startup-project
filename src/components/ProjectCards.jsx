@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getAllUsers } from "../api/fetch";
 import { Link } from "react-router-dom";
+import "../App.css"
 
 export default function ProjectCards() {
   const [allUsers, setAllUsers] = useState([]);
@@ -19,8 +20,10 @@ export default function ProjectCards() {
 }, []);
 
 return (
-    <div>
-      <h1>User Cards</h1>
+  <>
+  <h1>User Cards</h1>
+    <div className="job-posts">
+      {/* i added line above for CSS - fix */}
       {allUsers.map((singleUser) => (
         <div className="project-card" key={singleUser.user}>
             <Link to={`/${singleUser.user}`}>
@@ -40,5 +43,6 @@ return (
         </div>
       ))}
     </div>
+    </>
   );
 }
