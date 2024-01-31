@@ -1,0 +1,63 @@
+body, html {
+  font-family: 'Courier New';
+  font-size: 12px;
+  text-align: center; /* Centers text and inline elements */
+  padding-bottom: 15%; /* footer acts better with this */
+  width: fit-content; /* makes everything soo neat */
+}
+
+main {
+  padding-top: 1em;
+  display: grid;
+  gap: 1em;
+  grid-template-columns: 1fr 2fr;
+  margin: 0;
+  width: fit-content;
+}
+
+header {
+  width: 100%;
+}
+
+aside {
+  margin: 0;
+  width: fit-content;
+  text-align: center;
+  padding-top: 1em;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  margin: 0;
+  text-align: center;
+  /* width: 100vw; */
+  /* not sure if need next lines */
+  display: inline-flex;
+  justify-content: center;
+}
+
+/* create jobPosts.css once corresponding component is created and add the following CSS */
+section.job-posts {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 1em;
+  width: fit-content;
+}
+
+ul.job {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  height: min-content;
+  border: 1px solid black;
+}
+
+.project-card {
+  border: 1px solid black;
+  margin-bottom: 20px;
+}
+
+/* when adding li for ul.job gotta align center */
