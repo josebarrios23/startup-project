@@ -6,24 +6,22 @@ body, html {
   width: 100%;
 }
 
-/* Flex container */
 .container {
-  display: flex; /* Enables Flexbox */
-  justify-content: center; /* Horizontally centers the flex items */
-  align-items: start; /* Aligns items to the start of the flex container */
+  display: flex;
+  justify-content: center;
+  align-items: start;
 }
 
 main {
-  /* flex-grow: 1; Allows the main element to grow and fill the space */
-  /* Other styles */
   flex-basis: 700px;
 }
 
 aside {
-  /* Your existing styles */
-  /* Set a flex-basis if you want to control the initial width of the aside */
   margin: 0;
   flex-basis: 200px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 footer {
@@ -35,14 +33,12 @@ footer {
   justify-content: center;
 }
 
-
-
 /* create jobPosts.css once corresponding component is created and add the following CSS */
 div.job-posts {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin-top: 1em;
-  gap: 2%;
+  gap: 1em;
   width: fit-content;
   
 }
@@ -54,22 +50,26 @@ h1.user-cards {
 /* individual cards css */
 .project-card {
   border: 1px solid black;
-  /* margin-bottom: 20px; */
   min-width: 150px;
-  min-height: 200px;
+  min-height: 190px;
   overflow-y: auto;
-  /* display: flex;
-  flex-direction: column; */
-  /* vertical-align: middle; */
+}
+
+.card-content {
+  color: red;
+  display:block;
+  position: relative;
+  top: 7vh;
+  height: 100%;
+  text-decoration: none;
 }
 
 /* make separate css for landing */
-/* make ternary css for background image for main */
 .landing-layout {
   background: url(https://www.bbg.org/img/uploads/hero/_desktop_hero_regular/bug-2015-harvest.jpg);
   background-size: cover;
-  min-height: 100vh; /* This will make sure the section covers the entire viewport height */
-  width: 100%; /* Ensure it spans the full width */
+  min-height: 100vh;
+  width: 100%;
 }
 
 section.landing-functionality {
@@ -77,4 +77,34 @@ section.landing-functionality {
   top: 50vh;
   color: aquamarine;
   text-align: center;
+}
+
+/* for tablets */
+@media screen and (min-width:376px) and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  aside {
+    margin: auto;
+    flex-basis: auto;
+  }
+  div.job-posts {
+    grid-template-columns: 1fr 1fr;
+    max-width: 80%;
+  }
+}
+
+/* for mobile phones */
+@media screen and (max-width:375px) {
+  .container {
+    flex-direction: column;
+  }
+  aside {
+    margin: auto;
+    flex-basis: auto;
+  }
+  div.job-posts {
+    grid-template-columns: 1fr;
+    max-width: 80%;
+  }
 }
