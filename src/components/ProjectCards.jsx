@@ -21,12 +21,12 @@ export default function ProjectCards() {
 
 return (
   <>
-  <h1>User Cards</h1>
+  <h1 className="user-cards">User Cards</h1>
     <div className="job-posts">
       {/* i added line above for CSS - fix */}
       {allUsers.map((singleUser) => (
         <div className="project-card" key={singleUser.user}>
-            <Link to={`/${singleUser.user}`}>
+            <Link className="card-content" to={`/${singleUser.user}`}>
           <h2>{singleUser.project.projectTitle}</h2>
           <p>{singleUser.name.firstName} {singleUser.name.lastName}</p>
           <div>

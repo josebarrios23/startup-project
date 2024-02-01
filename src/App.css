@@ -1,32 +1,29 @@
 body, html {
   font-family: 'Courier New';
   font-size: 12px;
-  text-align: center; /* Centers text and inline elements */
-  padding-bottom: 15%; /* footer acts better with this */
-  width: 100%; /* makes everything soo neat */
+  text-align: center;
+  padding-bottom: 15%;
+  width: 100%;
+}
+
+/* Flex container */
+.container {
+  display: flex; /* Enables Flexbox */
+  justify-content: center; /* Horizontally centers the flex items */
+  align-items: start; /* Aligns items to the start of the flex container */
 }
 
 main {
-  padding-top: 1em;
-  display: grid;
-  gap: 1em;
-  grid-template-columns: 1fr 2fr;
-  margin: 0;
-  width: 100%;
-}
-
-header {
-  width: 100%;
+  /* flex-grow: 1; Allows the main element to grow and fill the space */
+  /* Other styles */
+  flex-basis: 700px;
 }
 
 aside {
+  /* Your existing styles */
+  /* Set a flex-basis if you want to control the initial width of the aside */
   margin: 0;
-  width: fit-content;
-  text-align: center;
-  padding-top: 1em;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  flex-basis: 200px;
 }
 
 footer {
@@ -34,33 +31,37 @@ footer {
   bottom: 0;
   margin: 0;
   text-align: center;
-  /* width: 100vw; */
-  /* not sure if need next lines */
   display: inline-flex;
   justify-content: center;
 }
+
+
 
 /* create jobPosts.css once corresponding component is created and add the following CSS */
 div.job-posts {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin-top: 1em;
+  gap: 2%;
   width: fit-content;
+  
 }
 
-/* div.job {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  height: min-content;
-  border: 1px solid black;
-} */
+h1.user-cards {
+  margin:0;
+}
 
+/* individual cards css */
 .project-card {
   border: 1px solid black;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
+  min-width: 150px;
+  min-height: 200px;
+  overflow-y: auto;
+  /* display: flex;
+  flex-direction: column; */
+  /* vertical-align: middle; */
 }
-
-/* when adding li for ul.job gotta align center */
 
 /* make separate css for landing */
 /* make ternary css for background image for main */
@@ -75,4 +76,5 @@ section.landing-functionality {
   margin: auto;
   top: 50vh;
   color: aquamarine;
+  text-align: center;
 }
