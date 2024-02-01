@@ -3,7 +3,7 @@ body, html {
   font-size: 12px;
   text-align: center; /* Centers text and inline elements */
   padding-bottom: 15%; /* footer acts better with this */
-  width: fit-content; /* makes everything soo neat */
+  width: 100%; /* makes everything soo neat */
 }
 
 main {
@@ -12,7 +12,7 @@ main {
   gap: 1em;
   grid-template-columns: 1fr 2fr;
   margin: 0;
-  width: fit-content;
+  width: 100%;
 }
 
 header {
@@ -41,19 +41,19 @@ footer {
 }
 
 /* create jobPosts.css once corresponding component is created and add the following CSS */
-section.job-posts {
+div.job-posts {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin-top: 1em;
   width: fit-content;
 }
 
-ul.job {
+/* div.job {
   display: grid;
   grid-template-columns: 1fr 2fr;
   height: min-content;
   border: 1px solid black;
-}
+} */
 
 .project-card {
   border: 1px solid black;
@@ -61,3 +61,18 @@ ul.job {
 }
 
 /* when adding li for ul.job gotta align center */
+
+/* make separate css for landing */
+/* make ternary css for background image for main */
+.landing-layout {
+  background: url(https://www.bbg.org/img/uploads/hero/_desktop_hero_regular/bug-2015-harvest.jpg);
+  background-size: cover;
+  min-height: 100vh; /* This will make sure the section covers the entire viewport height */
+  width: 100%; /* Ensure it spans the full width */
+}
+
+section.landing-functionality {
+  margin: auto;
+  top: 50vh;
+  color: aquamarine;
+}
