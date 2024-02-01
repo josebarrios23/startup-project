@@ -6,7 +6,7 @@ const MainLayout = ({ children }) => {
      function for location path which determines which layout to choose depending on path location (whether on Landing page view or other views). MainLayout.jsx serves to wrap all the components that will not have landing page layout */
      console.log(children)
   return (
-    <body>
+    <section>
       <Header />
       <aside>
         <h2>Aside</h2>
@@ -16,7 +16,7 @@ const MainLayout = ({ children }) => {
       <main>{children}</main>
       {/* children prop contain 2 objects - each object represents a Route tag */}
       <footer>Footer</footer>
-    </body>
+    </section>
   );
 };
 
