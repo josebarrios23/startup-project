@@ -1,3 +1,25 @@
-.footer {
-    font-size: x-large;
-}
+/* Footer.css */
+.bg-warning {
+    background-color: #ffc107; /* Example background color */
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .text-lg-end {
+    text-align: right;
+  }
+  
+  .text-black {
+    color: black;
+  }
+  
+  .footer-link {
+    color: black; /* Ensures link color matches your design */
+    text-decoration: none; /* Optional: Removes underline from links */
+  }
+  
+  .footer-link:hover {
+    text-decoration: underline; /* Optional: Adds underline on hover */
+  }
