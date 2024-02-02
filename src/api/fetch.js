@@ -8,7 +8,7 @@ export function getOneUser(id) {
   return fetch(`${URL}/users/${id}`).then((res) => res.json());
 }
 
-// Function for submitting applicant form data to the server
+/* --- FOR ApplicantForm.jsx must be fixed ----*/
 export function submitApplicantForm(formData, projectId, positionId) {
   // Log the submission for debugging purposes
   console.log(`Submitting form for projectId: ${projectId}, positionId: ${positionId}`);
