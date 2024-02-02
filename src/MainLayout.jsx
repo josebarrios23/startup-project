@@ -13,8 +13,10 @@ const MainLayout = ({ children }) => {
       
       <aside>
         <h2>Aside</h2>
+        <ul className="aside">
         User Drop Down
         <button>Log In</button>
+        </ul>
       </aside>
       {/* <h1 className="user-cards">User Cards</h1> */}
       <main>{children}</main>
