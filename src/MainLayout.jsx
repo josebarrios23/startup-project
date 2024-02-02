@@ -19,7 +19,7 @@ const MainLayout = ({ children }) => {
       <main>{children}</main>
       {/* children prop contain 2 objects - each object represents a Route tag */}
       </section>
-      <footer>Footer</footer>
+      <footer></footer>
     </>
   );
 };
