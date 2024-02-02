@@ -4,8 +4,6 @@ import ProjectCards from './components/ProjectCards';
 import SingleProject from './components/SingleProject';
 import Landing from './components/Landing';
 import MainLayout from './MainLayout';
-import Footer from './components/Footer';
-// import Footer.css from './components/Footer.css;'
 
 const App = () => {
   const location = useLocation();
@@ -26,7 +24,6 @@ const App = () => {
             <Route path="/projectcards" element={<ProjectCards />} />
             <Route path="/:id" element={<SingleProject />} />
           </Routes>
-          <Footer></Footer>
         </MainLayout>
       )}
     </div>

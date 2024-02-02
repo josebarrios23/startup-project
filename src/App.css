@@ -29,8 +29,9 @@ footer {
   bottom: 0;
   margin: 0;
   text-align: center;
-  display: inline-flex;
+  display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 /* create jobPosts.css once corresponding component is created and add the following CSS */
