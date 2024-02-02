@@ -66,7 +66,7 @@ h1.user-cards {
 }
 
 /* make separate css for landing */
-.landing-layout {
+/* .landing-layout {
   background: url(https://www.bbg.org/img/uploads/hero/_desktop_hero_regular/bug-2015-harvest.jpg);
   background-size: cover;
   min-height: 100vh;
@@ -78,7 +78,7 @@ section.landing-functionality {
   top: 50vh;
   color: aquamarine;
   text-align: center;
-}
+} */
 
 /* css for applicant view (in SingleProject.jsx */
 section.applicant-view {
