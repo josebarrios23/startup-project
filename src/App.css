@@ -1,9 +1,16 @@
+:root {
+  --lightblue: aliceblue;
+  --white: rgba(255, 255, 255, 0.385);
+  --primary: rgb(61, 135, 255);
+}
+
 body, html {
   font-family: 'Courier New';
   font-size: 12px;
   text-align: center;
   padding-bottom: 15%;
   width: 100%;
+  background-color: var(--lightblue);
 }
 
 .container {
@@ -22,6 +29,16 @@ aside {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  gap: 1em;
+}
+ul.aside {
+  border: 1px solid var(--primary);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 150px;
+  min-height: 190px;
+  overflow-y: auto;
 }
 
 footer {
@@ -41,7 +58,7 @@ div.job-posts {
   margin-top: 1em;
   gap: 1em;
   width: fit-content;
-  
+  background-color: var(--white);
 }
 
 h1.user-cards {
@@ -50,14 +67,14 @@ h1.user-cards {
 
 /* individual cards css */
 .project-card {
-  border: 1px solid black;
+  border: 1px solid var(--primary);
   min-width: 150px;
   min-height: 190px;
   overflow-y: auto;
 }
 
 .card-content {
-  color: red;
+  color: var(--primary);
   display:block;
   position: relative;
   top: 7vh;
