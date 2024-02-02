@@ -1,5 +1,6 @@
 import "./index.css";
 import Header from './components/Header';
+import Footer from "./components/Footer";
 
 const MainLayout = ({ children }) => {
     /* Landing.jsx will have functionality (Link to navigate to All job posts and log in aside) while App.jsx will have the ternary
@@ -18,8 +19,8 @@ const MainLayout = ({ children }) => {
       {/* <h1 className="user-cards">User Cards</h1> */}
       <main>{children}</main>
       {/* children prop contain 2 objects - each object represents a Route tag */}
+      <Footer />
       </section>
-      <footer></footer>
     </>
   );
 };
