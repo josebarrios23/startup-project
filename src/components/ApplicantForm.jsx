@@ -1,11 +1,10 @@
 import { useState } from 'react'
 import { submitApplicantForm } from "../api/fetch";
 
-// Adjust ApplicantForm to accept props
 const ApplicantForm = ({ projectId, positionId }) => {
   const [formData, setFormData] = useState({
       fullName: '',
-      experience: '', // Use an empty string to represent no selection
+      experience: '',
       email: '',
       comments: '',
       terms: false,
@@ -28,19 +27,39 @@ const ApplicantForm = ({ projectId, positionId }) => {
       }
   };
 
-  const handleSubmit = (e) => {
-      e.preventDefault();
-      // Adjust the function call to include projectId and positionId
-      submitApplicantForm(formData, projectId, positionId)
-          .then(data => {
-              console.log('Form submitted successfully', data);
-              // Reset form or redirect as needed
-              setFormData({ fullName: '', experience: '', email: '', comments: '', terms: false });
-          })
-          .catch(error => {
-              console.error('Error submitting form:', error);
-          });
+// The primary reason for the use of async in this code is that it involves asynchronous operations like sending a form submission to a server. The submitApplicantForm function performs an HTTP request to the server, which can take some time to complete. Using async/await, you can pause the execution of the function until this operation finishes without blocking the entire application.Here's what it does:
+
+const handleSubmit = async (e) => {
+  e.preventDefault(); // 1. Prevent the default form submission behavior
+
+  // 2. Construct the new applicant info object directly as the server expects
+  const newApplicantInfo = {
+      applicant: formData.fullName, // Get the full name from form data
+      hasExperience: formData.experience === 'yes', // Check if the user has experience and map it to true/false as expected by the server
+      termsAgreement: formData.terms, // Get the terms agreement from form data
+      email: formData.email, // Get the email from form data
+      comments: formData.comments, // Get the comments from form data
   };
+
+  // 3. No need to fetch the current project data or modify the entire project structure
+  // Directly submit the new applicant info for the specific position
+
+  // 4. After constructing the `newApplicantInfo` object, the code calls the `submitApplicantForm` function with this data, along with `projectId` and `positionId`. It appears that this function sends a request to a server to submit the form data. It's likely an asynchronous operation, which is why the `async` keyword is used for the `handleSubmit` function.
+
+  submitApplicantForm(newApplicantInfo, projectId, positionId)
+      .then(data => {
+          // 5. A `.then()` block is used to handle the successful response from the server. If the submission is successful, it logs a success message to the console and resets the `formData` object to clear the form fields.
+          console.log('Form submitted successfully', data);
+          setFormData({ fullName: '', experience: '', email: '', comments: '', terms: false }); // Clear the form fields
+      })
+      .catch(error => {
+          // 5. If there is an error during the submission, it's caught in the `.catch()` block, and an error message is logged to the console.
+          console.error('Error submitting form:', error);
+      });
+};
+
+
+
 
   return (
       <section className="application-form">
