@@ -1,4 +1,4 @@
-.landing-layout {
+/* .landing-layout {
     background: url(https://www.bbg.org/img/uploads/hero/_desktop_hero_regular/bug-2015-harvest.jpg);
     background-size: cover;
     min-height: 100vh;
@@ -10,4 +10,82 @@
     top: 50vh;
     color: aquamarine;
     text-align: center;
+  } */
+
+  .landing-layout, .landing-functionality {
+    overflow-y: wrap;
+    overflow-x: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(61, 135, 255);
   }
+  
+  .landing-layout {
+    background-color: aliceblue;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  section.landing-functionality {
+    /* margin: auto; */
+    min-width: 50%;
+    min-height: 25%;
+    padding: 1.5em;
+    /* top: 50vh; */
+    font-size: 1.5em;
+    text-align: center;
+    flex-direction: column;
+    /* gap: 1em; */
+    background-color: rgba(255, 255, 255, 0.385);
+    /* border-radius: 3em; */
+    border: 3px solid rgb(61, 135, 255);
+  }
+  
+  /* .welcome-button {
+  
+  } */
+  
+  .border-flip {
+    display: inline-block;
+    padding: .5em;
+    width: 10em;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    background: none;
+    border: none;
+  } 
+   
+  .border-flip::before {
+    content: "";
+    position: absolute;
+    inset: 0px;
+    transform: perspective(350px) rotateX(0deg);
+    transition: all 0.35s ease 0s;
+  } 
+   
+  .border-flip:hover::before {
+    transition: all 0.35s ease 0s;
+    transform: perspective(350px) rotateX(-180deg);
+  } 
+   
+  .border-flip--blue {
+    color: rgb(61, 135, 255);
+  } 
+   
+  .border-flip--blue::before {
+    border: 3px solid rgb(61, 135, 255);
+  } 
+   
+  .btn {
+    font-family: 'Courier New';
+    text-transform: uppercase;
+    font-size: 1em;
+  } 
+   
+  .btn:hover .btn-slide-show-text1 {
+    margin-left: 65px;
+  } 
