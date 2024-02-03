@@ -61,41 +61,41 @@ const ApplicantForm = ({ projectId, positionId }) => {
 const handleSubmit = async (e) => {
     e.preventDefault();
   
-    const projectUrl = `http://localhost:5001/api/projects/${projectId}`;
-    const applicant = {
-      fullName: formData.fullName,
-      experience: formData.experience,
-      email: formData.email,
-      comments: formData.comments,
-      terms: formData.terms,
-    };
+    // const projectUrl = `http://localhost:5001/api/projects/${projectId}`;
+    // const applicant = {
+    //   fullName: formData.fullName,
+    //   experience: formData.experience,
+    //   email: formData.email,
+    //   comments: formData.comments,
+    //   terms: formData.terms,
+    // };
 
-    try {
-      // Fetch the current project data
-      const projectResponse = await fetch(projectUrl);
-      if (!projectResponse.ok) throw new Error('Failed to fetch project data.');
+    // try {
+    //   // Fetch the current project data
+    //   const projectResponse = await fetch(projectUrl);
+    //   if (!projectResponse.ok) throw new Error('Failed to fetch project data.');
 
-      const projectData = await projectResponse.json();
-      // Update the project data with new applicant information
-      // Assuming 'positionsNeeded' structure and that positionId is a key within it
-      if (!projectData.project.positionsNeeded[positionId].applicantInfo) {
-        projectData.project.positionsNeeded[positionId].applicantInfo = [];
-      }
-      projectData.project.positionsNeeded[positionId].applicantInfo.push(applicant);
+    //   const projectData = await projectResponse.json();
+    //   // Update the project data with new applicant information
+    //   // Assuming 'positionsNeeded' structure and that positionId is a key within it
+    //   if (!projectData.project.positionsNeeded[positionId].applicantInfo) {
+    //     projectData.project.positionsNeeded[positionId].applicantInfo = [];
+    //   }
+    //   projectData.project.positionsNeeded[positionId].applicantInfo.push(applicant);
 
-      // PUT the updated project back to the server
-      const updateResponse = await fetch(projectUrl, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(projectData),
-      });
-      if (!updateResponse.ok) throw new Error('Failed to update project with new applicant.');
+    //   // PUT the updated project back to the server
+    //   const updateResponse = await fetch(projectUrl, {
+    //     method: 'PUT',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify(projectData),
+    //   });
+    //   if (!updateResponse.ok) throw new Error('Failed to update project with new applicant.');
 
-      console.log('Applicant added successfully');
-      // Optionally, clear the form or navigate the user elsewhere
-    } catch (error) {
-      console.error('Error processing form submission:', error);
-    }
+    //   console.log('Applicant added successfully');
+    //   // Optionally, clear the form or navigate the user elsewhere
+    // } catch (error) {
+    //   console.error('Error processing form submission:', error);
+    // }
 };
 
 
