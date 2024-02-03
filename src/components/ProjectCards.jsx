@@ -29,7 +29,7 @@ export default function ProjectCards() {
             <Link className="card-content" to={`/${singleUser.user}`}>
               <h2>{singleUser.project.projectTitle}</h2>
               <p>{singleUser.name.firstName} {singleUser.name.lastName}</p>
-              <div>
+              <div className="positions-needed">
                 <h3>Positions Needed:</h3>
                 <section>
                   {Object.entries(singleUser.project.positionsNeeded).map(([position, details]) => (
