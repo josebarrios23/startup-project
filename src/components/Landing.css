@@ -1,16 +1,3 @@
-/* .landing-layout {
-    background: url(https://www.bbg.org/img/uploads/hero/_desktop_hero_regular/bug-2015-harvest.jpg);
-    background-size: cover;
-    min-height: 100vh;
-    width: 100%;
-  }
-  
-  section.landing-functionality {
-    margin: auto;
-    top: 50vh;
-    color: aquamarine;
-    text-align: center;
-  } */
 
   .landing-layout, .landing-functionality {
     overflow-y: wrap;
