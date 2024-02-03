@@ -2,6 +2,7 @@
   --lightblue: aliceblue;
   --white: rgba(255, 255, 255, 0.629);
   --primary: rgb(61, 135, 255);
+  --yellow: #ffc107;
 }
 
 body, html {
@@ -19,12 +20,6 @@ body, html {
   align-items: start;
   gap:1em;
   width: 80%;
-}
-
-main {
-  /* flex-basis: 700px; */
-  /* width: 80%; */
- 
 }
 
 aside {
@@ -106,20 +101,10 @@ div.positions-needed {
   border-radius: 1em;
 }
 
-/* make separate css for landing */
-/* .landing-layout {
-  background: url(https://www.bbg.org/img/uploads/hero/_desktop_hero_regular/bug-2015-harvest.jpg);
-  background-size: cover;
-  min-height: 100vh;
-  width: 100%;
-}
-
-section.landing-functionality {
-  margin: auto;
-  top: 50vh;
-  color: aquamarine;
+h3.positions-needed {
+  color: var(--yellow);
   text-align: center;
-} */
+}
 
 /* css for applicant view (in SingleProject.jsx */
 section.applicant-view {
