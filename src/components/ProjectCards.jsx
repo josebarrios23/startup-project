@@ -30,7 +30,7 @@ export default function ProjectCards() {
               <h2>{singleUser.project.projectTitle}</h2>
               <p>{singleUser.name.firstName} {singleUser.name.lastName}</p>
               <div className="positions-needed">
-                <h3>Positions Needed:</h3>
+                <h3 className="positions-needed">Positions Needed:</h3>
                 <section>
                   {Object.entries(singleUser.project.positionsNeeded).map(([position, details]) => (
                     <div key={position}>
