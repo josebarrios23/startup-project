@@ -1,86 +1,54 @@
+/* base font size in html is 12px, 1rem = 12px for these calculations */
 
-  .landing-layout, .landing-functionality {
-    overflow-y: wrap;
-    overflow-x: wrap;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--primary);
-  }
-  
-  .landing-layout {
-    /* background-color: aliceblue; */
-    /* background: url(https://sanctuaries.noaa.gov/media/eib/2061.jpg); */
-    background-size: cover;
-    height: 100vh;
-    width: 100vw;
-  }
-  
-  section.landing-functionality {
-    /* margin: auto; */
-    min-width: 50%;
-    min-height: 25%;
-    padding: 1.5em;
-    /* top: 50vh; */
-    font-size: 1.5em;
-    text-align: center;
-    flex-direction: column;
-    /* gap: 1em; */
-    background-color: var(--white);
-    /* border-radius: 3em; */
-    border: 3px solid var(--primary);
-    border-radius: 1em;
-  }
-  
-  /* .welcome-button {
-  
-  } */
-  
-  .border-flip {
-    display: inline-block;
-    padding: .5em;
-    width: 10em;
-    position: relative;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 600;
-    background: none;
-    border: none;
-    border-radius: 1em;
-  } 
-   
-  .border-flip::before {
-    content: "";
-    position: absolute;
-    inset: 0px;
-    transform: perspective(350px) rotateX(0deg);
-    transition: all 0.35s ease 0s;
-    border-radius: 1em;
-  } 
-   
-  .border-flip:hover::before {
-    transition: all 0.35s ease 0s;
-    transform: perspective(350px) rotateX(-180deg);
-    border-radius: 1em;
-  } 
-   
-  .border-flip--blue {
-    color: var(--primary);
-    border-radius: 1em;
-  } 
-   
-  .border-flip--blue::before {
-    border: 3px solid var(--primary);
-    border-radius: 1em;
-  } 
-   
-  .btn {
-    font-family: 'Courier New';
-    text-transform: uppercase;
-    font-size: 1em;
-    border-radius: 1em;
-  } 
-   
-  .btn:hover .btn-slide-show-text1 {
-    margin-left: 65px;
-  } 
+.landing-layout, .landing-functionality {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary);
+}
+
+.landing-layout {
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+}
+
+section.landing-functionality {
+  min-width: 50%; /* Responsive width, no change needed */
+  min-height: 25%; /* Responsive height, no change needed */
+  padding: 1.25rem; /* 1.5em adjusted based on base font-size */
+  font-size: 1.25rem; /* Adjusted from 1.5em */
+  text-align: center;
+  flex-direction: column;
+  background-color: var(--white);
+  border: 0.013rem solid var(--primary); /* Adjusted from 0.20rem for consistency */
+}
+
+.btn {
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+}
+
+.btn-rect-to-round {
+  height: 4.583rem; /* Adjusted from 55px */
+  width: 16.667rem; /* Adjusted from 200px */
+  font-size: 1.333rem; /* Adjusted from 16px */
+  font-weight: 600;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.5s ease-in;
+}
+
+.btn-rect-to-round:hover {
+  border-radius: 7rem;
+  color: var(--yellow) !important;
+}
+
+.btn-rect-to-round--red {
+  border: 0.017rem solid var(--primary); /* Adjusted from 0.20rem */
+  color: var(--primary) !important;
+}
+
+.btn-rect-to-round--red:hover {
+  background: var(--primary);
+}
