@@ -15,14 +15,15 @@ const MainLayout = ({ children }) => {
         <h2>Aside</h2>
         <ul className="aside">
         User Drop Down
-        <button>Log In</button>
+        <button className="border-flip border-flip--blue btn">Log In</button>
         </ul>
       </aside>
       {/* <h1 className="user-cards">User Cards</h1> */}
       <main>{children}</main>
       {/* children prop contain 2 objects - each object represents a Route tag */}
-      <Footer />
+      {/* <Footer /> */}
       </section>
+      <Footer />
     </>
   );
 };
