@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { getAllUsers } from "../api/fetch";
 import { Link } from "react-router-dom";
-import "../App.css"
+import "../App.css";
 
-export default function ProjectCards() {
+export default function ProjectCards({ selectedUser }) {
   const [allUsers, setAllUsers] = useState([]);
   const [loadingError, setLoadingError] = useState(false);
 
@@ -19,13 +19,17 @@ export default function ProjectCards() {
       });
   }, []);
 
+  // Filter users based on the selected user value or display all users if no user is selected
+  const filteredUsers = selectedUser
+    ? allUsers.filter((user) => user.user === selectedUser)
+    : allUsers;
+
   return (
     <>
       <h1 className="user-cards">User Cards</h1>
       <div className="job-posts">
-        {allUsers.map((singleUser, index) => ( // added index so it can have a "key" thing
+        {filteredUsers.map((singleUser, index) => (
           <div className="project-card" key={`${singleUser.user}-${index}`}>
-            {/* adjusted key as single user to get rid of error */}
             <Link className="card-content" to={`/${singleUser.user}`}>
               <h2>{singleUser.project.projectTitle}</h2>
               <p>{singleUser.name.firstName} {singleUser.name.lastName}</p>
