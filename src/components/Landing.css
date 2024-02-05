@@ -30,8 +30,11 @@ section.landing-functionality {
 }
 
 .btn-rect-to-round {
-  height: 4.583rem; /* Adjusted from 55px */
-  width: 16.667rem; /* Adjusted from 200px */
+  /* height: 4.583rem; */
+  min-height: 4.583rem;
+  height: 50%;
+  min-width: 16.667rem; /* Adjusted from 200px */
+  width: 50%;
   font-size: 1.333rem; /* Adjusted from 16px */
   font-weight: 600;
   background: transparent;
