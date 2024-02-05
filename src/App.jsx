@@ -12,6 +12,7 @@ import SingleProject from "./components/SingleProject";
 import UserProjectCards from "./components/UserProjectCards";
 import UserSingleProject from "./components/UserSingleProject";
 import EditProjectForm from "./components/EditProjectForm";
+import Header from './components/Header';
 
 const App = () => {
   const location = useLocation();
