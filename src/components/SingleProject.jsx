@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getOneUser } from "../api/fetch";
-import ApplicantForm from "./applicantForm";
+import ApplicantForm from "./ApplicantForm";
 
 export default function SingleProject() {
     const [singleUser, setSingleUser] = useState(null);
@@ -51,8 +51,8 @@ export default function SingleProject() {
                     ))}
                 </select>
             </div>
-            {/* Pass both projectId and selectedPositionKey to ApplicantForm */}
-            <ApplicantForm projectId={id} positionId={selectedPositionKey} />
+            {/* Pass both id and selectedPositionKey to ApplicantForm */}
+            <ApplicantForm userId={id} position={selectedPositionKey} />
         </section>
     );
 }
