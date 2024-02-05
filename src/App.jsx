@@ -6,6 +6,7 @@ import SingleProject from './components/SingleProject';
 import Landing from './components/Landing';
 import MainLayout from './MainLayout';
 import Aside from './components/Aside';
+import Header from './components/Header';
 
 const App = () => {
   const location = useLocation();
