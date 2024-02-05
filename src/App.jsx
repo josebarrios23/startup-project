@@ -11,6 +11,7 @@ import ProjectCards from "./components/ProjectCards";
 import SingleProject from "./components/SingleProject";
 import UserProjectCards from "./components/UserProjectCards";
 import UserSingleProject from "./components/UserSingleProject";
+import EditProjectForm from "./components/EditProjectForm";
 
 const App = () => {
   const location = useLocation();
@@ -36,6 +37,7 @@ const App = () => {
             {/* the following Routes are for logged in users only */}
             <Route path="/user/:id" element={<UserProjectCards selectedUser={selectedUser} />} />
             <Route path="/user/job/:id" element={<UserSingleProject/>} />
+            <Route path="/edit-project/:id" element={<EditProjectForm />} />
           </Routes>
         </MainLayout>
       )}

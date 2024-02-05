@@ -28,9 +28,9 @@ const Aside = ({ onSelectUser }) => {
           <option value="2">User 2</option>
           <option value="3">User 3</option>
         </select>
-        <button type="submit" className="btn btn-rect-to-round btn-rect-to-round--red">Log In</button>
+        {/* <button type="submit" className="btn btn-rect-to-round btn-rect-to-round--red">Log In</button> */}
         {/* next line could be button for viewers /applicants who don't need to log in */}
-        {/* <button type="submit" className="btn btn-rect-to-round btn-rect-to-round--red">View All Posts</button> */}
+        <button type="submit" className="btn btn-rect-to-round btn-rect-to-round--red">Job Posts</button>
       </form>
     </aside>
   );
