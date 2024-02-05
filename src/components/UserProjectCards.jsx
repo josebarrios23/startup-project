@@ -39,10 +39,14 @@ export default function UserProjectCards({ selectedUser }) {
                   {Object.entries(singleUser.project.positionsNeeded).map(([position, details]) => (
                     <div key={position}>
                       <strong>{position}</strong>: {details.workDuration}, {details.experience} experience
+                      
                     </div>
                   ))}
+                  
                 </section>
               </div>
+              {/* delete button needs to connect to API */}
+              <button>Delete</button>
             </Link>
           </div>
         ))}

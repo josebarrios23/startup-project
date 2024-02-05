@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+// useNavigate to add to edit button so it can navigate to Edit Job form
 import { getOneUser } from "../api/fetch";
 
-export default function SingleProject() {
+export default function UserSingleProject() {
     const [singleUser, setSingleUser] = useState(null);
+
+    const navigate = useNavigate();
     const { id } = useParams();
     const [loadingError, setLoadingError] = useState(false);
     // State to hold the selected position key
@@ -51,10 +54,10 @@ export default function SingleProject() {
                         </option>
                     ))}
                 </select>
+               {/* Edit button links to EditProjectForm.jsx so need route  */}
+                {/* using use navigate to let button navigate to EditProjectForm.jsx form page */}
+                <button onClick={() => navigate(`/edit-project/${id}`)}>Edit</button>
             </div>
-            <section>
-                {/* add edit / delete buttons */}
-            </section>
         </section>
     );
 }
