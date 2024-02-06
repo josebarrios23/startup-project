@@ -10,15 +10,15 @@ import Aside from './components/Aside';
 
 const App = () => {
   const location = useLocation();
-  const isLandingPage = location.pathname === "/";
-  const [selectedUser, setSelectedUser] = useState("");
+  const isLandingPage = location.pathname === '/';
+  const [selectedUser, setSelectedUser] = useState(''); // State to store the selected user
 
   const handleSelectUser = (user) => {
     setSelectedUser(user);
   };
 
   return (
-    <div className={isLandingPage ? "landing-layout" : ""}>
+    <div className={isLandingPage ? 'landing-layout' : ''}>
       {isLandingPage ? (
         <Routes>
           <Route path="/" element={<Landing />} />
