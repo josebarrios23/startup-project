@@ -1,8 +1,11 @@
 :root {
   --lightblue: aliceblue;
   --white: rgba(255, 255, 255, 0.629);
-  --primary: rgba(0, 153, 214, 0.871);
+  --lm-blue: rgba(0, 153, 214, 0.871);
   --yellow: #ffc107;
+  --dark: rgba(0, 0, 0, 0.583);
+  /* dark mode background!!! */
+  --background: url("https://images-assets.nasa.gov/image/iss040e090835/iss040e090835~medium.jpg");
 }
 
 body, html {
@@ -12,6 +15,9 @@ body, html {
   padding-bottom: 15%; /* Responsive, no change needed */
   width: 100%;
   background-color: var(--lightblue);
+  background: var(--background);
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .container {
