@@ -26,11 +26,13 @@ const App = () => {
       ) : (
         <MainLayout>
           <Aside onSelectUser={handleSelectUser} />
+          <section className="container">
           <Routes>
             <Route path="/projectcards" element={<ProjectCards selectedUser={selectedUser} />} />
             <Route path="/:id" element={<SingleProject selectedUser={selectedUser}/>} />
             {/* <Route path="/createnewproject" element={<CreateNewProject selectedUser={selectedUser} />} /> */}
           </Routes>
+          </section>
         </MainLayout>
       )}
     </div>
