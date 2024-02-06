@@ -1,17 +1,20 @@
 /* base font size in html is 12px, 1rem = 12px for these calculations */
 
 .landing-layout, .landing-functionality {
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   color: var(--lm-blue);
   flex-direction: column;
+  gap: 2rem;
 }
 
 .landing-layout {
   background-size: cover;
-  height: 100vh;
+  height: 70vh;
   width: 100vw;
+  padding: 3%;
 }
 
 section.landing-functionality {

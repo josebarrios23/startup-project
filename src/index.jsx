@@ -53,6 +53,9 @@ function Root() {
         width: '100%',
         backgroundSize: 'cover',
         backgroundAttachment: 'fixed',
+        position:'fixed',
+        top: 70,
+        left: 0,
     };
 
     return (

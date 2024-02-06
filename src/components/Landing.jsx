@@ -8,11 +8,12 @@ const Landing = () => {
     return (
         <section className="landing-functionality">
             {/* Welcome message and navigation buttons */}
-            <h1>Welcome to Our Freelance Platform!</h1>
+            <h1>Welcome to SkillShop,</h1>
+            <h1>Our Freelance Platform!</h1>
             <Link to="/projectcards">
               {/* <button className='welcome-button'>View Freelance Jobs</button> */}
               {/* <button className="border-flip border-flip--blue btn">Explore</button> */}
-              <button className="btn btn-rect-to-round btn-rect-to-round--red"> Click Me </button>
+              <button className="btn btn-rect-to-round btn-rect-to-round--red"> Explore </button>
             </Link>
         </section>
     )
