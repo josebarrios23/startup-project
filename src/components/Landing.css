@@ -4,7 +4,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--primary);
+  color: var(--lm-blue);
+  flex-direction: column;
 }
 
 .landing-layout {
@@ -21,7 +22,7 @@ section.landing-functionality {
   text-align: center;
   flex-direction: column;
   background-color: var(--white);
-  border: 0.013rem solid var(--primary); /* Adjusted from 0.20rem for consistency */
+  border: 0.013rem solid var(--lm-blue); /* Adjusted from 0.20rem for consistency */
 }
 
 .btn {
@@ -48,10 +49,10 @@ section.landing-functionality {
 }
 
 .btn-rect-to-round--red {
-  border: 0.017rem solid var(--primary); /* Adjusted from 0.20rem */
-  color: var(--primary) !important;
+  border: 0.017rem solid var(--lm-blue); /* Adjusted from 0.20rem */
+  color: var(--lm-blue) !important;
 }
 
 .btn-rect-to-round--red:hover {
-  background: var(--primary);
+  background: rgba(0, 153, 214, 0.871);
 }
