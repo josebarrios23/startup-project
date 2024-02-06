@@ -29,3 +29,48 @@ export function submitApplicantForm(userId, position, newApplicant) {
       }).then((res) => res.json());
     });
 }
+
+export function editProject(userId, updatedProjectData) {
+  return fetch(`${URL}/users/${userId}`)
+      .then((response) => response.json())
+      .then((userData) => {
+          // Update the entire project object
+          userData.project = {
+              ...userData.project,
+              ...updatedProjectData
+          };
+
+          // Send the updated user object back with a PUT request
+          return fetch(`${URL}/users/${userId}`, {
+              method: 'PUT',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(userData),
+          }).then((res) => res.json());
+      });
+}
+
+export function deleteUser(userId) {
+  return fetch(`${URL}/users/${userId}`, {
+    method: 'DELETE',
+  });
+}
+
+export function createProject(projectData) {
+  return fetch('[Your API Endpoint]/projects', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(projectData)
+  })
+  .then(response => {
+    if (!response.ok) {
+      console.error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}
+
