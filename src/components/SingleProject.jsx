@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getOneUser } from "../api/fetch";
 import ApplicantForm from "./ApplicantForm";
+import EditProject from "./EditProjectForm";
 
-export default function SingleProject() {
+export default function SingleProject({ selectedUser }) {
     const [singleUser, setSingleUser] = useState(null);
     const { id } = useParams();
     const [loadingError, setLoadingError] = useState(false);
@@ -34,25 +35,31 @@ export default function SingleProject() {
     };
 
     return (
-        <section className="applicant-view">
-            <div className="project-card">
-                <h1>{singleUser.project.projectTitle}</h1>
-                <h2>{singleUser.name.firstName} {singleUser.name.lastName}</h2>
-                <div>{singleUser.project.fullDescription}</div>
+  <section className="applicant-view">
+    <div className="project-card">
+      <h1>{singleUser.project.projectTitle}</h1>
+      <h2>{singleUser.name.firstName} {singleUser.name.lastName}</h2>
+      <div>{singleUser.project.fullDescription}</div>
 
-                {/* Position selection dropdown */}
-                <label htmlFor="positionSelect">Choose a position:</label>
-                <select id="positionSelect" value={selectedPositionKey} onChange={handlePositionSelect}>
-                    <option value="">Select a position</option>
-                    {Object.keys(singleUser.project.positionsNeeded).map((position) => (
-                        <option key={position} value={position}>
-                            {position}
-                        </option>
-                    ))}
-                </select>
-            </div>
-            {/* Pass both id and selectedPositionKey to ApplicantForm */}
-            <ApplicantForm userId={id} position={selectedPositionKey} />
-        </section>
-    );
+      {!selectedUser && ( // Check if singleUser is truthy
+        <div>
+          {/* Position selection dropdown */}
+          <label htmlFor="positionSelect">Choose a position:</label>
+          <br />
+          <select id="positionSelect" value={selectedPositionKey} onChange={handlePositionSelect}>
+            <option value="">Select a position</option>
+            {Object.keys(singleUser.project.positionsNeeded).map((position) => (
+              <option key={position} value={position}>
+                {position}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+    </div>
+    {selectedUser ? (<EditProject userId={id} />) : (
+      <ApplicantForm userId={id} position={selectedPositionKey} />
+    )}
+  </section>
+);
 }
