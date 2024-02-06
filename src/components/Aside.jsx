@@ -14,8 +14,8 @@ const Aside = ({ onSelectUser }) => {
 
   return (
     <aside>
-      <h2>Aside</h2>
-      <form onSubmit={handleSubmit}>
+      {/* <h2>Aside</h2> */}
+      <form className="aside-form" onSubmit={handleSubmit}>
         <label htmlFor="userSelect">Select User:</label>
         <select id="userSelect" value={selectedUser} onChange={handleUserSelect}>
           <option value="">Select a user</option>

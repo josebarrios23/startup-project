@@ -9,11 +9,9 @@ const MainLayout = ({ children }) => {
   return (
     <>
     <Header />
-    <section className="container">
       {/* <h1 className="user-cards">User Cards</h1> */}
       <main>{children}</main>
       {/* children prop contain 2 objects - each object represents a Route tag */}
-      </section>
       <Footer />
     </>
   );

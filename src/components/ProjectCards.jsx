@@ -36,7 +36,7 @@ export default function ProjectCards({ selectedUser }) {
 
   return (
     <>
-      <h1 className="user-cards">User Cards</h1>
+      {/* <h1 className="user-cards">User Cards</h1> */}
       {/* Conditionally render the button based on selectedUser */}
       {/* {selectedUser && (
         <Link to="/CreateNewProject" className="create-project-button">
