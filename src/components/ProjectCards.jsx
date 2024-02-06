@@ -47,8 +47,8 @@ export default function ProjectCards({ selectedUser }) {
         {filteredUsers.map((singleUser, index) => (
           <div className="project-card" key={`${singleUser.user}-${index}`}>
             <Link className="card-content" to={`/${singleUser.user}`}>
-              <h2>{singleUser.project.projectTitle}</h2>
-              <p>
+              <h2 className="project-title">{singleUser.project.projectTitle}</h2>
+              <p className="project-title">
                 {singleUser.name.firstName} {singleUser.name.lastName}
               </p>
               <div className="positions-needed">
