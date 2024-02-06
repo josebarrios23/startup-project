@@ -27,6 +27,14 @@ const ApplicantForm = ({ userId, position }) => {
       .catch((error) => {
         alert('Failed to submit application. Please try again.');
       });
+      //reset
+      setFormData({
+        applicant: '',
+        hasExperience: false,
+        termsAgreement: false,
+        email: '',
+        comments: ''
+      });
   };
 
   return (
