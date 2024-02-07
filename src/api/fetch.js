@@ -55,22 +55,44 @@ export function deleteUser(userId) {
   });
 }
 
-export function createProject(projectData) {
-  return fetch('[Your API Endpoint]/projects', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(projectData)
-  })
-  .then(response => {
-    if (!response.ok) {
-      console.error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
+// export function createProject(userId, updatedProjectData) {
+//   return fetch(`${URL}/users/${userId}`)
+//   .then((response) => response.json())
+//   .then((userData) => {
+//       // Update the entire project object
+//       userData.project = {
+//           ...userData.project,
+//           ...updatedProjectData
+//       };
+
+//       return fetch(`${URL}/users/${userId}`, {
+//           method: 'POST',
+//           headers: { 'Content-Type': 'application/json' },
+//           body: JSON.stringify(userData),
+//       }).then((res) => res.json());
+//   });
+// }
+
+export function createProject(userId, newProjectData) {
+  return fetch(`${URL}/users/${userId}`)
+    .then((response) => response.json())
+    .then((userData) => {
+        // Assuming userData.project is an object with projects keyed by their titles or IDs
+        const projectKey = newProjectData.projectTitle; // Or any unique identifier for the project
+        const updatedProjects = {
+            ...userData.project, // Keep existing projects
+            [projectKey]: newProjectData // Add the new project
+        };
+
+        // Now, userData.project contains the existing projects plus the new one
+        userData.project = updatedProjects;
+
+        return fetch(`${URL}/users/${userId}`, {
+            method: 'PUT', // Use PUT for updating existing resources
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(userData),
+        }).then((res) => res.json());
+    });
 }
+
 

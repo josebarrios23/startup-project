@@ -1,111 +1,97 @@
-// import React, { useState } from 'react';
-// import { createProject } from '../api/fetch'; // Ensure this import matches your project structure
+import { useState } from 'react';
+import { createProject } from '../api/fetch';
+import "../App.css"
 
-// const CreateNewProject = ({ selectedUser }) => {
-//   const [formData, setFormData] = useState({
-//     projectTitle: '',
-//     projectDescription: '',
-//     fullDescription: '',
-//     positionsNeeded: {}
-//   });
+const CreateProject = ({ userId }) => {
+  const [formData, setFormData] = useState({
+    projectTitle: '',
+    projectDescription: '',
+    fullDescription: '',
+    positions: [], // Changed to an array to handle multiple positions
+  });
 
-//   const handleChange = (event) => {
-//     const { name, value } = event.target;
-//     setFormData(prevFormData => ({
-//       ...prevFormData,
-//       [name]: value
-//     }));
-//   };
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    if (name.startsWith('position_')) {
+      const index = parseInt(name.split('_')[1], 10);
+      const fieldName = name.split('_')[2];
+      setFormData((prevFormData) => {
+        const newPositions = [...prevFormData.positions];
+        if (!newPositions[index]) newPositions[index] = { payPerHour: "", workDuration: "", experience: "" };
+        newPositions[index][fieldName] = value;
+        return { ...prevFormData, positions: newPositions };
+      });
+    } else {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: value
+      }));
+    }
+  };
 
-//   const handlePositionChange = (positionKey, attribute, value) => {
-//     setFormData(prevFormData => ({
-//       ...prevFormData,
-//       positionsNeeded: {
-//         ...prevFormData.positionsNeeded,
-//         [positionKey]: {
-//           ...prevFormData.positionsNeeded[positionKey],
-//           [attribute]: value
-//         }
-//       }
-//     }));
-//   };
+  const addPosition = () => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      positions: [...prevFormData.positions, { payPerHour: "", workDuration: "", experience: "" }]
+    }));
+  };
 
-//   const handleAddPosition = () => {
-//     const newPositionKey = `position${Object.keys(formData.positionsNeeded).length + 1}`;
-//     setFormData(prevFormData => ({
-//       ...prevFormData,
-//       positionsNeeded: {
-//         ...prevFormData.positionsNeeded,
-//         [newPositionKey]: {
-//           payPerHour: '',
-//           workDuration: '',
-//           experience: '',
-//           applicantCount: 0,
-//           applicantInfo: []
-//         }
-//       }
-//     }));
-//   };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const newProjectData = {
+      projectTitle: formData.projectTitle,
+      projectDescription: formData.projectDescription,
+      fullDescription: formData.fullDescription,
+      positionsNeeded: formData.positions.reduce((acc, cur, index) => {
+        const positionKey = `position${index + 1}`; // Dynamically create a position key
+        acc[positionKey] = { ...cur, applicantCount: 0, applicantInfo: [] };
+        return acc;
+      }, {})
+    };
 
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
+    createProject(userId, newProjectData)
+      .then(() => {
+        alert('Project created successfully!');
+      })
+      .catch((error) => {
+        alert('Failed to create project. Please try again.');
+        console.error(error);
+      });
+  };
 
-//     if (selectedUser) {
-//       const newProjectData = {
-//         user: selectedUser,
-//         name: { firstName: '', lastName: '' },
-//         project: {
-//           ...formData
-//         }
-//       };
+  return (
+    <section className="edit-project-form">
+      <h2>Create Project</h2>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="projectTitle">Project Title:</label>
+        <input type="text" name="projectTitle" id="projectTitle" value={formData.projectTitle} onChange={handleInputChange} />
 
-//       createProject(newProjectData)
-//         .then(() => {
-//           alert('New project created successfully!');
-//         })
-//         .catch(error => {
-//           alert('Failed to create a new project. Please try again.');
-//         });
-//     }
-//   };
+        <label htmlFor="projectDescription">Project Description:</label>
+        <textarea name="projectDescription" id="projectDescription" value={formData.projectDescription} onChange={handleInputChange}></textarea>
 
-//   if (!selectedUser) {
-//     return null;
-//   }
+        {/* extra thing? */}
+        {/* <label htmlFor="fullDescription">Full Description:</label>
+        <textarea name="fullDescription" id="fullDescription" value={formData.fullDescription} onChange={handleInputChange}></textarea> */}
 
-//   return (
-//     <section className="create-new-project-form">
-//       <h2>Create New Project</h2>
-//       <form onSubmit={handleSubmit}>
-//         <label htmlFor="projectTitle">Project Title:</label>
-//         <input type="text" name="projectTitle" id="projectTitle" value={formData.projectTitle} onChange={handleChange} />
+        {formData.positions.map((position, index) => (
+          <div key={index}>
+            <h3>Position {index + 1}:</h3>
+            <label>Pay Per Hour (in dollars):</label>
+            <input type="text" name={`position_${index}_payPerHour`} value={position.payPerHour} onChange={handleInputChange} />
 
-//         <label htmlFor="projectDescription">Project Description:</label>
-//         <textarea name="projectDescription" id="projectDescription" value={formData.projectDescription} onChange={handleChange}></textarea>
+            <label>Work Duration (in weeks):</label>
+            <input type="text" name={`position_${index}_workDuration`} value={position.workDuration} onChange={handleInputChange} />
 
-//         <label htmlFor="fullDescription">Full Description:</label>
-//         <textarea name="fullDescription" id="fullDescription" value={formData.fullDescription} onChange={handleChange}></textarea>
+            <label>Experience (in years):</label>
+            <input type="text" name={`position_${index}_experience`} value={position.experience} onChange={handleInputChange} />
+          </div>
+        ))}
+        <button type="button" onClick={addPosition}>Add Another Position</button>
+        <button type="submit">Create Project</button>
+      </form>
+    </section>
+  );
+};
 
-//         {/* Dynamic fields for positionsNeeded */}
-//         {Object.entries(formData.positionsNeeded).map(([positionKey, position]) => (
-//           <div key={positionKey}>
-//             <h3>{positionKey}</h3>
-//             <label htmlFor={`${positionKey}-payPerHour`}>Pay Per Hour:</label>
-//             <input type="number" name={`${positionKey}-payPerHour`} id={`${positionKey}-payPerHour`} value={position.payPerHour} onChange={(e) => handlePositionChange(positionKey, 'payPerHour', e.target.value)} />
+export default CreateProject;
 
-//             <label htmlFor={`${positionKey}-workDuration`}>Work Duration:</label>
-//             <input type="text" name={`${positionKey}-workDuration`} id={`${positionKey}-workDuration`} value={position.workDuration} onChange={(e) => handlePositionChange(positionKey, 'workDuration', e.target.value)} />
-
-//             <label htmlFor={`${positionKey}-experience`}>Experience:</label>
-//             <input type="text" name={`${positionKey}-experience`} id={`${positionKey}-experience`} value={position.experience} onChange={(e) => handlePositionChange(positionKey, 'experience', e.target.value)} />
-//           </div>
-//         ))}
-//         <button type="button" onClick={handleAddPosition}>Add New Position</button>
-
-//         <button type="submit">Create Project</button>
-//       </form>
-//     </section>
-//   );
-// };
-
-// export default CreateNewProject;

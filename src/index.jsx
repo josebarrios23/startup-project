@@ -52,7 +52,8 @@ function Root() {
         minHeight: '100vh',
         width: '100%',
         backgroundSize: 'cover',
-        backgroundAttachment: 'fixed',
+        backgroundAttachment: 'relative',
+        padding: 70,
     };
 
     return (

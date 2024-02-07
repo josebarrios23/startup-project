@@ -36,7 +36,7 @@ export default function SingleProject({ selectedUser }) {
 
     return (
   <section className="applicant-view">
-    <div className="project-card">
+    <div className="project-card single-project-details">
       <h1>{singleUser.project.projectTitle}</h1>
       <h2>{singleUser.name.firstName} {singleUser.name.lastName}</h2>
       <div>{singleUser.project.fullDescription}</div>
