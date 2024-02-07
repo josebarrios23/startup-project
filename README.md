@@ -11,7 +11,7 @@ To get started with SkillShop on your local machine, follow these simple steps:
 1. **Clone the repository**: Clone the SkillShop repository to your local machine using the command:
 
    ```bash
-   git clone [repository URL]
+   git clone https://github.com/josebarrios23/startup-project
    ```
 
 2. **Install dependencies**: Navigate to the cloned repository's directory and install the necessary dependencies by running:
