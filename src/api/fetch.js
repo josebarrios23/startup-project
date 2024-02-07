@@ -73,26 +73,52 @@ export function deleteUser(userId) {
 //   });
 // }
 
-export function createProject(userId, newProjectData) {
-  return fetch(`${URL}/users/${userId}`)
-    .then((response) => response.json())
-    .then((userData) => {
-        // Assuming userData.project is an object with projects keyed by their titles or IDs
-        const projectKey = newProjectData.projectTitle; // Or any unique identifier for the project
-        const updatedProjects = {
-            ...userData.project, // Keep existing projects
-            [projectKey]: newProjectData // Add the new project
-        };
+// export function createProject(userId, newProjectData) {
+//   return fetch(`${URL}/users/${userId}`)
+//     .then((response) => response.json())
+//     .then((userData) => {
+//         // Assuming userData.project is an object with projects keyed by their titles or IDs
+//         const projectKey = newProjectData.projectTitle; // Or any unique identifier for the project
+//         const updatedProjects = {
+//             ...userData.project, // Keep existing projects
+//             [projectKey]: newProjectData // Add the new project
+//         };
 
-        // Now, userData.project contains the existing projects plus the new one
-        userData.project = updatedProjects;
+//         // Now, userData.project contains the existing projects plus the new one
+//         userData.project = updatedProjects;
 
-        return fetch(`${URL}/users/${userId}`, {
-            method: 'PUT', // Use PUT for updating existing resources
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(userData),
-        }).then((res) => res.json());
-    });
-}
+//         return fetch(`${URL}/users/${userId}`, {
+//             method: 'PUT', // Use PUT for updating existing resources
+//             headers: { 'Content-Type': 'application/json' },
+//             body: JSON.stringify(userData),
+//         }).then((res) => res.json());
+//     });
+// }
 
+export const fetchUsersCount = async () => {
+  const response = await fetch(`${URL}/users/`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  const data = await response.json();
+  return data.length; // Assuming the API returns an array of users
+};
+
+export const submitNewProject = async (projectData) => {
+  const response = await fetch(`${URL}/users/`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(projectData),
+  });
+
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+
+  return response.json();
+};
 
