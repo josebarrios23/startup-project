@@ -11,7 +11,7 @@ import CreateNewProject from './components/CreateNewProject';
 const App = () => {
   const location = useLocation();
   const isLandingPage = location.pathname === '/';
-  const [selectedUser, setSelectedUser] = useState(''); // State to store the selected user
+  const [selectedUser, setSelectedUser] = useState('');
 
   const handleSelectUser = (user) => {
     setSelectedUser(user);

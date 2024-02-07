@@ -8,7 +8,6 @@ export default function SingleProject({ selectedUser }) {
     const [singleUser, setSingleUser] = useState(null);
     const { id } = useParams();
     const [loadingError, setLoadingError] = useState(false);
-    // State to hold the selected position key
     const [selectedPositionKey, setSelectedPositionKey] = useState('');
 
     useEffect(() => {
@@ -31,7 +30,7 @@ export default function SingleProject({ selectedUser }) {
     }
 
     const handlePositionSelect = (event) => {
-        setSelectedPositionKey(event.target.value); // added this so applicants can select position they want within project they chose
+        setSelectedPositionKey(event.target.value);
     };
 
     return (
@@ -59,9 +58,8 @@ export default function SingleProject({ selectedUser }) {
                     )
                 )}
 
-                {!selectedUser && ( // Check if singleUser is truthy
+                {!selectedUser && (
                     <div>
-                        {/* Position selection dropdown */}
                         <label htmlFor="positionSelect">Choose a position:</label>
                         <br />
                         <select id="positionSelect" value={selectedPositionKey} onChange={handlePositionSelect}>

@@ -3,7 +3,7 @@ import { editProject, getOneUser } from '../api/fetch';
 
 const EditProject = ({ userId }) => {
   const [formData, setFormData] = useState({
-    projectId: '', // Assuming projectId is part of your project data
+    projectId: '',
     projectTitle: '',
     projectDescription: '',
     fullDescription: '',
@@ -11,7 +11,7 @@ const EditProject = ({ userId }) => {
     newPayPerHour: '',
     newWorkDuration: '',
     newExperience: '',
-    positionsNeeded: {} // Assuming this structure to handle existing positions
+    positionsNeeded: {}
   });
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const EditProject = ({ userId }) => {
           projectTitle: data.project.projectTitle,
           projectDescription: data.project.projectDescription,
           fullDescription: data.project.fullDescription,
-          positionsNeeded: data.project.positionsNeeded // Handle existing positions
+          positionsNeeded: data.project.positionsNeeded
         });
       })
       .catch((error) => {
@@ -71,7 +71,6 @@ const EditProject = ({ userId }) => {
     <section className="edit-project-form">
       <h2>Edit Project</h2>
       <form onSubmit={handleSubmit}>
-        {/* Form fields for project details */}
         <label htmlFor="projectTitle">Project Title:</label>
         <input type="text" name="projectTitle" id="projectTitle" value={formData.projectTitle} onChange={handleChange} />
 
@@ -81,9 +80,8 @@ const EditProject = ({ userId }) => {
         <label htmlFor="fullDescription">Full Description:</label>
         <textarea name="fullDescription" id="fullDescription" value={formData.fullDescription} onChange={handleChange}></textarea>
 
-        {/* Form fields for adding a new position */}
         <h3>Add New Position:</h3>
-        <label htmlFor="newPositionKey">Position Key:</label>
+        <label htmlFor="newPositionKey">Position Name:</label>
         <input type="text" name="newPositionKey" id="newPositionKey" value={formData.newPositionKey} onChange={handleChange} />
 
         <label htmlFor="newPayPerHour">Pay Per Hour:</label>

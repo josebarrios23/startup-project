@@ -34,13 +34,12 @@ export function editProject(userId, updatedProjectData) {
   return fetch(`${URL}/users/${userId}`)
       .then((response) => response.json())
       .then((userData) => {
-          // Update the entire project object
+        
           userData.project = {
               ...userData.project,
               ...updatedProjectData
           };
 
-          // Send the updated user object back with a PUT request
           return fetch(`${URL}/users/${userId}`, {
               method: 'PUT',
               headers: { 'Content-Type': 'application/json' },
@@ -55,46 +54,6 @@ export function deleteUser(userId) {
   });
 }
 
-// export function createProject(userId, updatedProjectData) {
-//   return fetch(`${URL}/users/${userId}`)
-//   .then((response) => response.json())
-//   .then((userData) => {
-//       // Update the entire project object
-//       userData.project = {
-//           ...userData.project,
-//           ...updatedProjectData
-//       };
-
-//       return fetch(`${URL}/users/${userId}`, {
-//           method: 'POST',
-//           headers: { 'Content-Type': 'application/json' },
-//           body: JSON.stringify(userData),
-//       }).then((res) => res.json());
-//   });
-// }
-
-// export function createProject(userId, newProjectData) {
-//   return fetch(`${URL}/users/${userId}`)
-//     .then((response) => response.json())
-//     .then((userData) => {
-//         // Assuming userData.project is an object with projects keyed by their titles or IDs
-//         const projectKey = newProjectData.projectTitle; // Or any unique identifier for the project
-//         const updatedProjects = {
-//             ...userData.project, // Keep existing projects
-//             [projectKey]: newProjectData // Add the new project
-//         };
-
-//         // Now, userData.project contains the existing projects plus the new one
-//         userData.project = updatedProjects;
-
-//         return fetch(`${URL}/users/${userId}`, {
-//             method: 'PUT', // Use PUT for updating existing resources
-//             headers: { 'Content-Type': 'application/json' },
-//             body: JSON.stringify(userData),
-//         }).then((res) => res.json());
-//     });
-// }
-
 export const fetchUsersCount = async () => {
   const response = await fetch(`${URL}/users/`, {
     method: 'GET',
@@ -103,7 +62,7 @@ export const fetchUsersCount = async () => {
     },
   });
   const data = await response.json();
-  return data.length; // Assuming the API returns an array of users
+  return data.length; 
 };
 
 export const submitNewProject = async (projectData) => {
