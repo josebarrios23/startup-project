@@ -52,7 +52,6 @@ const EditProject = ({ userId }) => {
                     payPerHour: formData.newPayPerHour,
                     workDuration: formData.newWorkDuration,
                     experience: formData.newExperience,
-                    applicantCount: 0,
                     applicantInfo: []
                 }
             })

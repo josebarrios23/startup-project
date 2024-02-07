@@ -46,7 +46,7 @@ export default function ProjectCards({ selectedUser }) {
       <div className="job-posts">
         {filteredUsers.map((singleUser, index) => (
           <div className="project-card" key={`${singleUser.user}-${index}`}>
-            <Link className="card-content" to={`/${singleUser.user}`}>
+            <Link className="card-content" to={`/${singleUser.id}`}>
               <h2 className="project-title">{singleUser.project.projectTitle}</h2>
               <p className="project-title">
                 {singleUser.name.firstName} {singleUser.name.lastName}
@@ -57,8 +57,7 @@ export default function ProjectCards({ selectedUser }) {
                   {Object.entries(singleUser.project.positionsNeeded).map(
                     ([position, details]) => (
                       <div key={position}>
-                        <strong>{position}</strong>: {details.workDuration},{" "}
-                        {details.experience} experience
+                        <strong>{position}</strong>: {details.workDuration}, {details.experience} experience
                       </div>
                     )
                   )}

@@ -61,7 +61,6 @@ const CreateProject = ({ selectedUser }) => {
             payPerHour: cur.payPerHour,
             workDuration: cur.workDuration,
             experience: cur.experience,
-            applicantCount: 0,
             applicantInfo: []
           };
           return acc;
