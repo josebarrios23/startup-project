@@ -35,38 +35,49 @@ export default function SingleProject({ selectedUser }) {
     };
 
     return (
-  <section className="applicant-view">
-    <div className="project-card single-project-details">
-      <h1>{singleUser.project.projectTitle}</h1>
-      <h2>{singleUser.name.firstName} {singleUser.name.lastName}</h2>
-      <div>{singleUser.project.fullDescription}</div>
-      {Object.entries(singleUser.project.positionsNeeded).map(
+        <section className="applicant-view">
+            <div className="project-card single-project-details">
+                <h1>{singleUser.project.projectTitle}</h1>
+                <h2>{singleUser.name.firstName} {singleUser.name.lastName}</h2>
+                <div>{singleUser.project.fullDescription}</div>
+                {Object.entries(singleUser.project.positionsNeeded).map(
                     ([position, details]) => (
-                      <div key={position}>
-                        <strong>{position}</strong>: {details.workDuration}, {details.experience} experience, {details.payPerHour} per hour, {details.applicantInfo.length} applicant(s).
-                      </div>
+                        <div key={position}>
+                            <strong>{position}</strong>: {details.workDuration}, {details.experience} experience, {details.payPerHour} per hour, {details.applicantInfo.length} applicant(s).
+                            {selectedUser && (
+                                <div>
+                                    {details.applicantInfo.map((applicant, index) => (
+                                        <div key={index}>
+                                            <p><strong>Applicant</strong>: {applicant.applicant}</p>
+                                            <p><strong>Email</strong>: {applicant.email}</p>
+                                            <p><strong>Comments</strong>: {applicant.comments}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                     )
-                  )}
+                )}
 
-      {!selectedUser && ( // Check if singleUser is truthy
-        <div>
-          {/* Position selection dropdown */}
-          <label htmlFor="positionSelect">Choose a position:</label>
-          <br />
-          <select id="positionSelect" value={selectedPositionKey} onChange={handlePositionSelect}>
-            <option value="">Select a position</option>
-            {Object.keys(singleUser.project.positionsNeeded).map((position) => (
-              <option key={position} value={position}>
-                {position}
-              </option>
-            ))}
-          </select>
-        </div>
-      )}
-    </div>
-    {selectedUser ? (<EditProject userId={id} />) : (
-      <ApplicantForm userId={id} position={selectedPositionKey} />
-    )}
-  </section>
-);
+                {!selectedUser && ( // Check if singleUser is truthy
+                    <div>
+                        {/* Position selection dropdown */}
+                        <label htmlFor="positionSelect">Choose a position:</label>
+                        <br />
+                        <select id="positionSelect" value={selectedPositionKey} onChange={handlePositionSelect}>
+                            <option value="">Select a position</option>
+                            {Object.keys(singleUser.project.positionsNeeded).map((position) => (
+                                <option key={position} value={position}>
+                                    {position}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                )}
+            </div>
+            {selectedUser ? (<EditProject userId={id} />) : (
+                <ApplicantForm userId={id} position={selectedPositionKey} />
+            )}
+        </section>
+    );
 }
