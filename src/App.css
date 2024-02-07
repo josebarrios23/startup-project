@@ -10,7 +10,7 @@
 
 body, html {
   font-family: Courier;
-  font-size: 130%; /* browser default is typically 16px */
+  font-size: 120%; /* browser default is typically 16px */
   text-align: center;
   padding-bottom: 15%; /* Responsive, no change needed */
   width: 100%;
@@ -18,14 +18,13 @@ body, html {
   background: var(--background);
   background-size: cover;
   background-attachment: fixed;
-  
 }
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--white); /* Example background color */
+  background-color: var(--white);
   z-index: 1000; /* Ensures the header is above other content */
   box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: adds shadow for depth */
   font-size: 2rem;
@@ -300,6 +299,9 @@ button:hover {
 
 /* for tablets */
 @media screen and (min-width:376px) and (max-width: 1000px) {
+  html {
+    margin-top: 50px;
+  }
   main {
     display: flex;
     justify-content: center;
@@ -349,8 +351,11 @@ button:hover {
     margin-bottom: 0.75em; /* Less space on smaller screens */
   }
 }
-
+/* For phones */
 @media screen and (max-width:375px) {
+  html {
+    margin-top: 50px;
+  }
   main {
     display: flex;
     justify-content: center;

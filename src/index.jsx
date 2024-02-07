@@ -42,7 +42,7 @@ function Root() {
         width: '100%',
         backgroundSize: 'cover',
         backgroundAttachment: 'relative',
-        marginTop: 70,
+        marginTop: '9%',
     };
 
     return (
