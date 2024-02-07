@@ -1,19 +1,9 @@
-// import { BrowserRouter } from "react-router-dom"; // imports BrowserRouter which listens to changes in the URL and ensures that the correct components are rendered when the URL changes
-// import ReactDOM from "react-dom/client";
-// import App from "./App.jsx";
-
-
-// ReactDOM.createRoot(document.getElementById("root")).render(
-//     <BrowserRouter>
-//         <App />
-//     </BrowserRouter>
-// );
-
 import { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
 import './App.css';
+import './index.css';
 
 function Root() {
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -29,7 +19,6 @@ function Root() {
                 document.documentElement.style.setProperty('--background', 'url("https://images-assets.nasa.gov/image/iss040e090835/iss040e090835~medium.jpg")');
                 document.documentElement.style.setProperty('--lightblue', 'rgba(0, 0, 0, 0.583)');
                 document.documentElement.style.setProperty('--white', 'rgba(0, 0, 0, 0.8)');
-                // document.documentElement.style.setProperty('--lm-blue', 'rgba(255, 255, 255, 0.8)');
                 document.documentElement.style.setProperty('--lm-blue', '#ffc107');
                 document.documentElement.style.setProperty('--yellow', '#ffc107');
                 document.documentElement.style.setProperty('--dark', 'aliceblue');
@@ -53,11 +42,11 @@ function Root() {
         width: '100%',
         backgroundSize: 'cover',
         backgroundAttachment: 'relative',
-        padding: 70,
+        marginTop: 70,
     };
 
     return (
-        <div style={divStyle}>
+        <div className="change-btn" style={divStyle}>
             <button onClick={changeBackground}>Change Background</button>
             <App />
         </div>

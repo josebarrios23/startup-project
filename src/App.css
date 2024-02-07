@@ -1,7 +1,7 @@
 :root {
   --lightblue: aliceblue;
   --white: rgba(255, 255, 255, 0.629);
-  --lm-blue: rgba(0, 153, 214, 0.871);
+  --lm-blue: rgba(0, 113, 158, 0.871);
   --yellow: #ffc107;
   --dark: rgba(0, 0, 0, 1);
   /* dark mode background!!! */
@@ -9,8 +9,8 @@
 }
 
 body, html {
-  font-family: 'Courier New';
-  font-size: 100%; /* browser default is typically 16px */
+  font-family: Courier;
+  font-size: 130%; /* browser default is typically 16px */
   text-align: center;
   padding-bottom: 15%; /* Responsive, no change needed */
   width: 100%;
@@ -36,7 +36,7 @@ h2 {
 }
 
 main {
-  margin-top:5vh;
+  /* margin-top:5vh; */
   display: flex;
   justify-content: center;
   padding-left: 1%;
@@ -277,14 +277,14 @@ form input::placeholder {
 /* Input focus styling */
 form input:focus {
   outline: none;
-  border-color: #007bff;
+  border-color: var(--lm-blue);
 }
 
 /* Submit button styling */
 button {
   cursor: pointer;
   padding: 10px 20px;
-  font-family: 'Courier New';
+  font-family: Courier;
   background-color: var(--lm-blue);
   color: var(--white);
   border: none;
