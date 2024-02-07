@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // Import Link
+import { Link } from "react-router-dom";
 import { getAllUsers, deleteUser } from "../api/fetch";
 import "../App.css";
 
@@ -29,20 +29,12 @@ export default function ProjectCards({ selectedUser }) {
       });
   };
 
-  // Filter users based on the selected user value or display all users if no user is selected
   const filteredUsers = selectedUser
     ? allUsers.filter((user) => user.user === selectedUser)
     : allUsers;
 
   return (
     <>
-      {/* <h1 className="user-cards">User Cards</h1> */}
-      {/* Conditionally render the button based on selectedUser */}
-      {/* {selectedUser && (
-        <Link to="/CreateNewProject" className="create-project-button">
-          Create New Project
-        </Link>
-      )} */}
       <div className="job-posts">
         {filteredUsers.map((singleUser, index) => (
           <div className="project-card" key={`${singleUser.user}-${index}`}>
@@ -66,7 +58,7 @@ export default function ProjectCards({ selectedUser }) {
               {selectedUser && (
                 <button
                   onClick={(event) => {
-                    event.preventDefault(); // Prevent the default link behavior
+                    event.preventDefault();
                     handleDelete(singleUser.id);
                   }}
                   className="delete-button"
