@@ -40,6 +40,13 @@ export default function SingleProject({ selectedUser }) {
       <h1>{singleUser.project.projectTitle}</h1>
       <h2>{singleUser.name.firstName} {singleUser.name.lastName}</h2>
       <div>{singleUser.project.fullDescription}</div>
+      {Object.entries(singleUser.project.positionsNeeded).map(
+                    ([position, details]) => (
+                      <div key={position}>
+                        <strong>{position}</strong>: {details.workDuration}, {details.experience} experience, {details.payPerHour} per hour, {details.applicantInfo.length} applicant(s).
+                      </div>
+                    )
+                  )}
 
       {!selectedUser && ( // Check if singleUser is truthy
         <div>
