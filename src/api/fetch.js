@@ -9,17 +9,16 @@ export function getOneUser(id) {
 }
 
 export function submitApplicantForm(userId, position, newApplicant) {
-  // Step 1: Retrieve the current user object
+
   return fetch(`${URL}/users/${userId}`)
     .then((userResponse) => userResponse.json())
     .then((userData) => {
-      // Step 2: Update the applicantInfo array
+  
       if (!userData.project.positionsNeeded[position].applicantInfo) {
         userData.project.positionsNeeded[position].applicantInfo = [];
       }
       userData.project.positionsNeeded[position].applicantInfo.push(newApplicant);
 
-      // Step 3: Send the updated user object back with a PUT request
       return fetch(`${URL}/users/${userId}`, {
         method: 'PUT',
         headers: {
@@ -30,7 +29,7 @@ export function submitApplicantForm(userId, position, newApplicant) {
     });
 }
 
-export function editProject(userId, updatedProjectData) {
+export function editProjectFetch(userId, updatedProjectData) {
   return fetch(`${URL}/users/${userId}`)
       .then((response) => response.json())
       .then((userData) => {

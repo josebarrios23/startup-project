@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { editProject, getOneUser } from '../api/fetch';
+import { editProjectFetch, getOneUser } from '../api/fetch';
 
 const EditProject = ({ userId }) => {
   const [formData, setFormData] = useState({
-    projectId: '',
     projectTitle: '',
     projectDescription: '',
     fullDescription: '',
@@ -18,7 +17,6 @@ const EditProject = ({ userId }) => {
     getOneUser(userId)
       .then((data) => {
         setFormData({
-          projectId: data.project.projectId,
           projectTitle: data.project.projectTitle,
           projectDescription: data.project.projectDescription,
           fullDescription: data.project.fullDescription,
@@ -58,7 +56,7 @@ const EditProject = ({ userId }) => {
         }
     };
 
-    editProject(userId, updatedProjectData)
+    editProjectFetch(userId, updatedProjectData)
       .then(() => {
         alert('Project details updated successfully!');
       })
