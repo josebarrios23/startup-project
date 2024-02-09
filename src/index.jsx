@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom'; // listens to url changes to make sure correct content is displayed based on url
 import App from './App.jsx';
 import './App.css';
 import './index.css';
@@ -53,9 +53,12 @@ function Root() {
     );
 }
 
+// to create Root component and render (line 57-58)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+    //Root component is the top-level component of the application
     <BrowserRouter>
         <Root />
+        {/* BrowserRouter enables client-side routing using the HTML5 history API */}
     </BrowserRouter>
 );
