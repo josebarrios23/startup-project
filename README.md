@@ -2,7 +2,9 @@
 
 Welcome to SkillShop, the premier platform for connecting homeowners with skilled freelance professionals for renovation projects. Our app streamlines the process of posting, discovering, and applying for projects, ensuring a seamless match between project requirements and professional expertise. Explore our application to kickstart your next renovation project or to find your next job opportunity.
 
-Visit our deployed application here: [Deployed Application Link]
+Visit our deployed application here: https://papaya-granita-72ade9.netlify.app
+
+Our data: https://json-server-starter-render.onrender.com/api/users
 
 ## Setup Instructions
 
