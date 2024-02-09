@@ -189,7 +189,7 @@ h3.positions-needed {
 }
 
 /* css for applicant view in SingleProject.jsx */
-div.single-project-details{
+div.single-project-details {
   color: var(--lm-blue);
   display: flex;
   flex-direction: column;
@@ -297,6 +297,23 @@ button {
 
 button:hover {
   background-color: var(--white);
+  color: var(--lm-blue);
+}
+
+div.members {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  color: var(--dark);
+}
+
+.team-member {
+  background-color: var(--white);
+  border-radius: 1rem;
+  padding: 2%;
+  border: 1px solid var(--lm-blue);
+}
+a {
   color: var(--lm-blue);
 }
 
