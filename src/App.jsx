@@ -7,53 +7,7 @@ import Landing from './components/Landing';
 import MainLayout from './MainLayout';
 import Aside from './components/Aside';
 import CreateNewProject from './components/CreateNewProject';
-import { v4 } from "uuid";
-
-//About component works in App.jsx, but About.jsx breaks code when imported - not sure why yet
-const About = () => {
-    const teamMembers = [
-      // about us code originally by Cristian and featured in one of our previous projects
-        {
-            name: "Cristian Garcia",
-            github: "https://github.com/cristiangarc",
-            funFact: "I love eating at restaurants",
-        },
-        {
-            name: "Jose Barrios",
-            github: "https://github.com/josebarrios23",
-            funFact: "I LOVE Astronomy",
-        },
-        {
-            name: "Enoch Tagoe",
-            github: "https://github.com/EnochTagoe1",
-            funFact: "I love travelling",
-        },
-        {
-          name: "Julissa Garcia",
-          github: "https://github.com/JuliGarc91",
-          funFact: "I love mafia movies; my fave is GoodFellas",
-      },
-    ];
-
-    return (
-        <div>
-            <h2>Team Members</h2>
-            <div className="members">
-                {teamMembers.map((member) => (
-                    <div key={v4()} className="team-member">
-                        <p>{member.name}</p>
-                        <p>Github:</p>
-                        <a href={member.github} target="_blank" rel="noopener noreferrer">
-                            View Github Profile
-                        </a>
-                        <p>Fun Fact:</p>
-                        <p>"{member.funFact}"</p>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
-};
+import About from './components/About';
 
 const App = () => {
   const location = useLocation();
