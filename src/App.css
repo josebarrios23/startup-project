@@ -10,9 +10,9 @@
 
 body, html {
   font-family: Courier;
-  font-size: 120%; /* browser default is typically 16px */
+  font-size: 120%;
   text-align: center;
-  padding-bottom: 15%; /* Responsive, no change needed */
+  padding-bottom: 15%;
   width: 100%;
   background-color: var(--lightblue);
   background: var(--background);
@@ -25,8 +25,8 @@ header {
   left: 0;
   width: 100%;
   background-color: var(--white);
-  z-index: 1000; /* Ensures the header is above other content */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: adds shadow for depth */
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   font-size: 2rem;
   color: var(--lm-blue);
 }
@@ -35,13 +35,10 @@ h2 {
 }
 
 main {
-  /* margin-top:5vh; */
   display: flex;
   justify-content: center;
   padding-left: 1%;
   padding-right: 1%;
-  /* padding-top: 5%; */
-  /* padding top is for space between main and header */
   width: 100%;
   padding-bottom: 30px;
 }
@@ -52,7 +49,6 @@ main {
   gap: 5%;
   width: 100%;
   padding: 0% 0% 1% 1%;
-  /* padding: 3% 1% 1% 1%; */
 }
 
 aside {
@@ -60,7 +56,6 @@ aside {
   float: left;
   border: 1px solid var(--lm-blue);
   max-height: 100%;
-  /* width: 100%;  */
   height: max-content; 
   display: flex;
   flex-direction: column;
@@ -85,27 +80,23 @@ label {
 }
 
 select {
-  background-color: #f0f0f0; /* Light grey background */
-  border: 1px solid var(--lm-blue); /* Grey border */
-  padding: 2%; /* Some padding around the text */
-  font-size: 1rem; /* Larger font size */
-  border-radius: 0.5rem; /* Rounded corners */
+  background-color: #f0f0f0;
+  border: 1px solid var(--lm-blue);
+  padding: 2%;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  display: block;
+  width: 100%; 
+  margin-bottom: 1em;
+  font-family: Courier;
 }
 
 .aside-form h2 {
-  margin-bottom: 1em; /* Adds space below the <h2> elements, scalable with font size */
-}
-
-select {
-  display: block; /* Ensures the select takes its own line */
-  width: 100%; /* Keeps the select element responsive */
-  margin-bottom: 1em; /* Adds space below the <select> element, scalable with font size */
-  font-family: Courier;
-  /* color: var(--lm-blue); */
+  margin-bottom: 1em;
 }
 
 .aside-form button {
-  display: block; /* Ensures the button takes its own line */
+  display: block;
   width: 100%; 
   margin-top: 1em; 
 }
@@ -113,7 +104,7 @@ select {
 
 /* Styling for options */
 option {
-  padding: 5px; /* Padding for options */
+  padding: 5px;
   font-family: Courier;
 }
 
@@ -128,15 +119,14 @@ footer {
   width: 100%;
 }
 
-/* create ProjectCards.css once corresponding component is created and add the following CSS */
+/* ProjectCard css */
 div.job-posts {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 1rem; /* Adjusted */
+  gap: 1rem;
   width: 100%;
 }
 
-/* is this needed? */
 h1.user-cards {
   margin:0;
 }
@@ -145,14 +135,10 @@ h1.user-cards {
 
 .project-card {
   border: 1px solid var(--lm-blue);
-  /* max-width: 20rem;
-  max-height: 100%; */
   min-height: 550px;
   width: 100%; 
-  /* height: 20rem;  */
   display: flex;
   flex-direction: column;
-  /* overflow-y:scroll; */
   background-color: var(--white);
   border-radius: 1rem;
   padding-bottom: 4%;
@@ -161,8 +147,6 @@ h1.user-cards {
 .card-content {
   color: var(--primary);
   display: flex;
-  /* position: relative; */
-  /* top: 2rem; */
   flex-direction: column;
   height: 100%;
   text-decoration: none;
@@ -178,8 +162,8 @@ div.positions-needed {
   background-color: rgba(0, 153, 214, 0.871);
   color: aliceblue;
   text-align: left;
-  padding: 1rem; /* Adjusted from 1em */
-  border-radius: 1rem; /* Adjusted for consistency */
+  padding: 1rem;
+  border-radius: 1rem;
   min-height: 300px;
 }
 
@@ -197,13 +181,12 @@ div.single-project-details {
 }
 section.applicant-view {
   display: flex;
-  margin-top: 1rem; /* Adjusted from 1em */
+  margin-top: 1rem;
   justify-content: center;
   flex-direction: column;
-  gap: 1rem; /* Adjusted */
+  gap: 1rem;
   width: 100%;
   height: 100%;
-  /* color: var() */
 }
 
 section.application-form {
@@ -214,6 +197,7 @@ section.application-form {
   background-color: var(--white);
   border-radius: 1rem;
   font-size: 1.25rem;
+  padding: 2%;
 }
 
 .edit-project-form {
