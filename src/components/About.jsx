@@ -1,5 +1,5 @@
-import { v4 } from "uuid";
-import "./App.css";
+import React from "react";
+import "../App.css"
 
 const About = () => {
     const teamMembers = [
@@ -29,8 +29,8 @@ const About = () => {
         <div>
             <h2>Team Members</h2>
             <div className="members">
-                {teamMembers.map((member) => (
-                    <div key={v4()} className="team-member">
+                {teamMembers.map((member, index) => (
+                    <div key={index} className="team-member">
                         <p>{member.name}</p>
                         <p>Github:</p>
                         <a href={member.github} target="_blank" rel="noopener noreferrer">
