@@ -1,6 +1,6 @@
 /* Footer.css */
 .bg-warning {
-    background-color: #ffc107; /* Example background color */
+    background-color: #ffc107;
   }
   
   .text-center {
@@ -17,12 +17,12 @@
   }
   
   .footer-link {
-    color: black; /* Ensures link color matches your design */
-    text-decoration: none; /* Optional: Removes underline from links */
+    color: black;
+    text-decoration: none;
   }
   
   .footer-link:hover {
-    text-decoration: underline; /* Optional: Adds underline on hover */
+    text-decoration: underline;
   }
 
 @media screen and (min-width:376px)and (max-width: 636px) {

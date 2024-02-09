@@ -1,7 +1,6 @@
 /* Enoch's header */
 header {
     color:  var(--lm-blue);
-    /* background-color: var(--white); */
     text-decoration: none;
     display: flex;
     height:10%;

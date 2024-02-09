@@ -27,15 +27,12 @@ To get started with SkillShop on your local machine, follow these simple steps:
 4. **Start the application**: Launch the application on your local development server by running:
 
    ```bash
-   npm start
+   npm run dev
    ```
 
    This command will start the React application and open it in your default web browser.
 
 5. **Explore SkillShop**: With the application running, explore the functionalities available, including project postings, applications, and user communications.
-
-For further details on deployment, API integration, or advanced configuration, please refer to the [Documentation](#).
-
 
 ## User Stories
 

@@ -158,3 +158,31 @@ ref
 : 
 null
 ```
+# Creating a Root Component to add darkmode / lightmode functionality:
+
+The statement "Calling `ReactDOM.createRoot()` and passing it the DOM element with the ID 'root'" refers to a specific step in initializing a React 18 (or newer) application, where a new root container is created for the React app to render its components. Let's break down this statement for clarity:
+
+1. **`ReactDOM.createRoot()`:** This is a method provided by the `react-dom` package starting from React 18. It is part of the new ReactDOM API that enables Concurrent Mode, which allows React to prepare multiple versions of the UI at the same time. This is a significant change from the previous `ReactDOM.render()` method used in React 17 and earlier versions. The new API offers better performance and more flexible rendering options.
+
+2. **`DOM element with the ID 'root'`:** This refers to an HTML element (usually a `<div>` element) present in your application's HTML file (often `index.html`) that serves as the entry point for your React application. This element is identified by its `id` attribute having the value `root`. For example, in your HTML file, you might have an element defined like this: `<div id="root"></div>`. This `div` acts as a container where your entire React app will be rendered.
+
+3. **Passing it the DOM element with the ID 'root'**: The method `ReactDOM.createRoot()` requires a reference to a DOM element where the React application will be mounted. You obtain this reference by using `document.getElementById('root')`, which finds the HTML element with the ID of `root` in the document. This reference is then passed as an argument to `ReactDOM.createRoot()`.
+
+Putting it all together, the process looks something like this in code:
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App'; // Assuming you have an App component defined
+
+// Find the DOM element with the ID 'root'
+const container = document.getElementById('root');
+
+// Create a root container for the React application
+const root = ReactDOM.createRoot(container);
+
+// Render the App component inside the root container
+root.render(<App />);
+```
+
+This code snippet will initialize a new React application, rendering the `App` component (which represents the root component of your application) inside the `<div id="root"></div>` element in your HTML document. This setup is necessary for using React 18's features, including Concurrent Mode.
