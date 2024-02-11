@@ -3,7 +3,7 @@ header {
     color:  var(--lm-blue);
     text-decoration: none;
     display: flex;
-    height:10%;
+    /* height:10%; */
     min-height: max-content;
 }
 main {
@@ -35,8 +35,8 @@ main {
         margin-top: 11%;
     }
     header {
-        /* display: flex;
-        flex-direction: column; */
+        display: flex;
+        flex-direction: column;
         min-height: fit-content;
         font-size: 1.20rem;
     }
@@ -46,19 +46,19 @@ main {
         margin-top: 20%;
     }
     header {
-        /* display: flex;
-        flex-direction: column; */
+        display: flex;
+        flex-direction: column;
         min-height: fit-content;
         font-size: 1rem;
     }
 }
-@media screen and (min-width:280px) and (max-width:375px) {
+@media screen and (max-width:375px) {
     html {
         margin-top: 30%;
     }
     header {
-        /* display: flex;
-        flex-direction: column; */
+        display: flex;
+        flex-direction: column;
         min-height: fit-content;
         font-size: 0.9rem;
     }
